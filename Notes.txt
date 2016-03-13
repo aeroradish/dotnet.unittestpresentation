@@ -1,0 +1,2 @@
+Install-Package NUnit
+Install-Package Moq
