@@ -1,0 +1,25 @@
+﻿@DotNet.UnitTesting.Models.PaymentModel
+@{
+    ViewBag.Title = "MakePayment";
+}
+
+<h2>MakePayment</h2>
+
+<br/>
+
+@Html.LabelFor(model => model.LoanID)
+<br />
+
+@Html.LabelFor(model => model.PaymentAmount)
+
+<br />
+
+@Html.EditorFor(model => model.PaymentAmount)
+
+<br/>
+
+<div class="row-fluid">
+    <div class="span12">
+        <input type="submit" value="Save" class="btn" />
+    </div>
+</div>

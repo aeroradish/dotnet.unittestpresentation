@@ -6,6 +6,10 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DotNet.UnitTesting.Web;
 using DotNet.UnitTesting.Web.Controllers;
+using DotNet.UnitTesting.DAL;
+using DotNet.UnitTesting.Logic;
+using DotNet.UnitTesting.Models;
+using Moq;
 
 namespace DotNet.UnitTesting.Tests.Controllers
 {
@@ -22,20 +26,42 @@ namespace DotNet.UnitTesting.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Modify this template to jump-start your ASP.NET MVC application.", result.ViewBag.Message);
+            Assert.AreEqual("Lazy title for Unit Testing presentation.", result.ViewBag.Message);
         }
 
         [TestMethod]
-        public void About()
+        public void MakePayment_Fail_PaymentTooLarge()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            Repository repo = new Repository();
+            var mockRepository = new Mock<ILoanModelDAL>();
+
+            PaymentModel pay = new PaymentModel();
+            pay.LoanID = 1;
+            pay.PaymentAmount = 500;
+
+            LoanModel loan = new LoanModel();
+            loan.LoanID = 1;
+            loan.Amount = 100;
+
+            int id = 1;
+
+            // tell the mock that when LoanSelectByID is called,
+            // return the specified Loan
+            mockRepository.Setup(cr => cr.LoanSelectByID(id)).Returns(loan);
+
+            // pass the mocked instance, not the mock itself, to the category
+            // controller using the Object property
+            repo.iLoanModelDAL = mockRepository.Object;
+
+            HomeController controller = new HomeController(repo);
 
             // Act
-            //ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.MakePayment(pay) as ViewResult;
 
             // Assert
-            //Assert.IsNotNull(result);
+            Assert.IsFalse(result.ViewBag.PaymentResult);
+
         }
 
         [TestMethod]

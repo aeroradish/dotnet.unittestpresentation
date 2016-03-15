@@ -24,6 +24,6 @@ namespace DotNet.UnitTesting.DAL
 
         }
 
-        ILoanModelDAL iLoanModelDAL { get; set; }
+        public ILoanModelDAL iLoanModelDAL { get; set; }
     }
 }

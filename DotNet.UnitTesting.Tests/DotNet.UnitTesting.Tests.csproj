@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -123,6 +126,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DotNet.UnitTesting.DAL\DotNet.UnitTesting.DAL.csproj">
+      <Project>{d70709b1-028d-4edc-9c17-e1181bb5a0e8}</Project>
+      <Name>DotNet.UnitTesting.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.UnitTesting.Logic\DotNet.UnitTesting.Logic.csproj">
+      <Project>{28c23a41-de35-40df-b0c4-56366b20b436}</Project>
+      <Name>DotNet.UnitTesting.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.UnitTesting.Models\DotNet.UnitTesting.Models.csproj">
+      <Project>{83a59f7c-752a-4bd1-a853-0d928ef0daf9}</Project>
+      <Name>DotNet.UnitTesting.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DotNet.UnitTesting.Web\DotNet.UnitTesting.Web.csproj">
       <Project>{C6EE4B86-0852-4905-9B09-F02E8BBD960D}</Project>
       <Name>DotNet.UnitTesting.Web</Name>

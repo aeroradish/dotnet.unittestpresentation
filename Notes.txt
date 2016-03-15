@@ -1,2 +1,3 @@
 Install-Package NUnit
 Install-Package Moq
+Install-Package NUnit.Mocks
