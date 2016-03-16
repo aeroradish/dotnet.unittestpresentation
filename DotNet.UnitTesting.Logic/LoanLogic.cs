@@ -41,5 +41,31 @@ namespace DotNet.UnitTesting.Logic
             
         }
 
+        public bool CalculatePayment(PaymentModel pay)
+        {
+            LoanModel loan = null;
+
+            try
+            {
+
+                loan = repo.iLoanModelDAL.LoanSelectByID(pay.LoanID);
+
+                if (pay.PaymentAmount > loan.Amount)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Exception newEx = new Exception("TestError");
+                throw newEx;
+            }
+
+        }
+
     }
 }
