@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlwaysValidFakeExtensionManager.cs" />
+    <Compile Include="FileExtensionManager.cs" />
+    <Compile Include="IFileExtensionManager.cs" />
     <Compile Include="LoanLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

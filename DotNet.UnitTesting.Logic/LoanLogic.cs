@@ -67,5 +67,20 @@ namespace DotNet.UnitTesting.Logic
 
         }
 
+        public bool IsValidLogFileName(string fileName)
+        {
+            if (fileName.EndsWith(".foo"))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool IsValidLogFileNameREFACTORED(string fileName)
+        {
+            IFileExtensionManager mgr = new FileExtensionManager();
+            return mgr.IsValid(fileName);
+        }
+
     }
 }
