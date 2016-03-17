@@ -13,15 +13,22 @@ namespace DotNet.UnitTesting.Logic
     {
 
         Repository repo = null;
+        private IFileExtensionManager manager;
 
         public LoanLogic()
         {
-
+            manager = new FileExtensionManager();
         }
 
         public LoanLogic(Repository repo)
         {
             this.repo = repo;
+            manager = new FileExtensionManager();
+        }
+
+        public LoanLogic(IFileExtensionManager mgr)
+        {
+            manager = mgr;
         }
 
         public bool AttemptPayment(PaymentModel pay)
@@ -78,8 +85,7 @@ namespace DotNet.UnitTesting.Logic
 
         public bool IsValidLogFileNameREFACTORED(string fileName)
         {
-            IFileExtensionManager mgr = new FileExtensionManager();
-            return mgr.IsValid(fileName);
+            return manager.IsValid(fileName);
         }
 
     }

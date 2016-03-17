@@ -5,10 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using DotNet.UnitTesting.Logic;
 
+//Code adapted from Art of Unit Testing
 namespace DotNet.UnitTesting.Logic
 {
     public class FileExtensionManager : IFileExtensionManager
     {
+        public FileExtensionManager()
+        {
+
+        }
+
         public bool IsValid(string fileName)
         {
             //read some file here

@@ -46,6 +46,18 @@ namespace DotNet.UnitTesting.Web.Controllers
             return View(pay);
         }
 
-        
+        //Code adapted from Art of Unit Testing
+        public ActionResult LogAnalyzer()
+        {
+            LoanLogic loanLogic = new LoanLogic(repo);
+
+            string fileName = string.Format("{0}", "hmm.foo");
+
+            //bool original = loanLogic.IsValidLogFileName(fileName);
+            bool refactored = loanLogic.IsValidLogFileNameREFACTORED(fileName);
+
+
+            return View();
+        }
     }
 }

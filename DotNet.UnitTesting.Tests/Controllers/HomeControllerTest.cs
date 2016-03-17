@@ -123,6 +123,25 @@ namespace DotNet.UnitTesting.Tests.Controllers
         }
 
         [TestMethod]
+        public void LogAnalyzer_ValidFileName_Pass()
+        {
+
+            // Arrange
+            IFileExtensionManager manager = new AlwaysValidFakeExtensionManager();
+            LoanLogic loanLogic = new LoanLogic(manager);
+
+            string foo =  "kung.foo";
+            bool result = false;
+
+            // Act
+            result = loanLogic.IsValidLogFileNameREFACTORED(foo);
+
+            // Assert
+            Assert.IsTrue(result);
+            
+        }
+
+        [TestMethod]
         public void Contact()
         {
             // Arrange

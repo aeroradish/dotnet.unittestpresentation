@@ -1,5 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Macon .NET User Group";
+    ViewBag.Message = "Presented by Kyle Kelly";
 }
 @section featured {
     <section class="featured">
@@ -9,10 +10,9 @@
                 <h2>@ViewBag.Message</h2>
             </hgroup>
             <p>
-                To learn more about Unit Testing visit
-                <a href="https://www.manning.com/books/the-art-of-unit-testing-second-edition" title="Art of Unit Testing">The Art of Unit Testing, Second Edition</a>.
-                
-                with examples in C# Roy Osherove.
+                Some code was adapted from the following source, so to learn more about Unit Testing visit
+                <a href="https://www.manning.com/books/the-art-of-unit-testing-second-edition" title="Art of Unit Testing">The Art of Unit Testing, Second Edition</a>
+                    by Roy Osherove with examples in C# .
             </p>
         </div>
     </section>
@@ -30,15 +30,13 @@
     </li>
 
     <li class="two">
-        <h5>Something else</h5>
+        <h5>Most of the examples are the tests, but we have links to keep up appearances</h5>
         Example 2
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
+        <p>@Html.ActionLink("Log Analyzer", "LogAnalyzer")</p>
     </li>
 
     <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+        <h5>Macon .NET User's Group</h5>
+         March 2016 Meeting.
     </li>
 </ol>
